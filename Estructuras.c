@@ -18,7 +18,12 @@ int main()
   while((estructura=readdir(directorio)))
     {
         archivoActual++;
-        printf("Archivo %3d: %s\n", archivoActual, estructura->d_name);
+        printf(" %3d .- ", archivoActual);
+        if(estructura->d_type == 4)
+          printf("Directorio:\t");
+        else
+          printf("Archivo:\t\t");
+        printf("%s\n", estructura->d_name);
     }
 
   tiempoFinal = clock();
